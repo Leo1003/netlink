@@ -1,7 +1,7 @@
 pub trait GenlFamily {
     type Header;
 
-    type CmdAttrs;
+    type Payload: GenericPayload;
 
     fn family_name(&self) -> &'static str;
 
@@ -10,6 +10,6 @@ pub trait GenlFamily {
     fn version(&self) -> u8;
 }
 
-pub trait Commands {
+pub trait GenericPayload {
     fn command(&self) -> u8;
 }

@@ -10,4 +10,5 @@ pub const CTRL_CMD_GETOPS: u8 = libc::CTRL_CMD_GETOPS as u8;
 pub const CTRL_CMD_NEWMCAST_GRP: u8 = libc::CTRL_CMD_NEWMCAST_GRP as u8;
 pub const CTRL_CMD_DELMCAST_GRP: u8 = libc::CTRL_CMD_DELMCAST_GRP as u8;
 pub const CTRL_CMD_GETMCAST_GRP: u8 = libc::CTRL_CMD_GETMCAST_GRP as u8;
-pub const CTRL_CMD_GETPOLICY: u8 = libc::CTRL_CMD_GETPOLICY as u8;
+//pub const CTRL_CMD_GETPOLICY: u8 = libc::CTRL_CMD_GETPOLICY as u8;
+pub const CTRL_CMD_GETPOLICY: u8 = 10;

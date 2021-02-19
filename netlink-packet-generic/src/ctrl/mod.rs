@@ -6,7 +6,7 @@ pub struct CtrlFamily;
 
 impl GenlFamily for CtrlFamily {
     type Header = ();
-    type CmdAttrs = CtrlCmdAttrs;
+    type Payload = CtrlCmdPayload;
 
     fn family_name(&self) -> &'static str {
         "nlctrl"
@@ -22,7 +22,7 @@ impl GenlFamily for CtrlFamily {
 }
 
 #[derive(Debug)]
-pub enum CtrlCmdAttrs {
+pub enum CtrlCmdPayload {
     Unspec,
     /// Notify from event
     NewFamily,
@@ -46,9 +46,9 @@ pub enum CtrlCmdAttrs {
     GetPolicy,
 }
 
-impl Commands for CtrlCmdAttrs {
+impl GenericPayload for CtrlCmdPayload {
     fn command(&self) -> u8 {
-        use CtrlCmdAttrs::*;
+        use CtrlCmdPayload::*;
         match self {
             Unspec => CTRL_CMD_UNSPEC,
             NewFamily => CTRL_CMD_NEWFAMILY,

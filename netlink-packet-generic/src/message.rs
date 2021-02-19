@@ -6,5 +6,5 @@ use netlink_packet_core::{NetlinkDeserializable, NetlinkSerializable};
 pub struct GenlMessage<F: GenlFamily> {
     header: GenlHeader,
     user_header: F::Header,
-    payload: F::CmdAttrs,
+    payload: F::Payload,
 }
