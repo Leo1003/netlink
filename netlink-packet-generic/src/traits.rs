@@ -1,10 +1,4 @@
 pub trait GenlFamily {
-    /// The custom header type
-    type Header;
-
-    /// The payload type contains the commands and the attributes
-    type Payload: GenericPayload;
-
     /// Return the unique family name
     ///
     /// Used to lookup the dynamically assigned ID
@@ -22,10 +16,17 @@ pub trait GenlFamily {
         0
     }
 
+    /// Return the command type of the message
+    fn command(&self) -> u8;
+
     /// Indicate the protocol version
     fn version(&self) -> u8;
 }
 
-pub trait GenericPayload {
-    fn command(&self) -> u8;
+pub trait GenlSerializable {
+
+}
+
+pub trait GenlDeserializable {
+
 }

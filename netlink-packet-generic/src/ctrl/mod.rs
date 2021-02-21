@@ -1,6 +1,8 @@
 use crate::constants::*;
 use crate::traits::*;
 
+pub mod nlas;
+
 #[derive(Copy, Clone, Debug)]
 pub struct CtrlFamily;
 

@@ -1,4 +1,5 @@
 pub const GENL_ID_CTRL: u16 = libc::GENL_ID_CTRL as u16;
+pub const GENL_HDRLEN: usize = 4;
 
 pub const CTRL_CMD_UNSPEC: u8 = libc::CTRL_CMD_UNSPEC as u8;
 pub const CTRL_CMD_NEWFAMILY: u8 = libc::CTRL_CMD_NEWFAMILY as u8;
