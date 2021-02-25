@@ -3,28 +3,8 @@ use crate::traits::*;
 
 pub mod nlas;
 
-#[derive(Copy, Clone, Debug)]
-pub struct CtrlFamily;
-
-impl GenlFamily for CtrlFamily {
-    type Header = ();
-    type Payload = CtrlCmdPayload;
-
-    fn family_name(&self) -> &'static str {
-        "nlctrl"
-    }
-
-    fn family_id(&self) -> u16 {
-        GENL_ID_CTRL
-    }
-
-    fn version(&self) -> u8 {
-        2
-    }
-}
-
 #[derive(Debug)]
-pub enum CtrlCmdPayload {
+pub enum GenlCtrl {
     Unspec,
     /// Notify from event
     NewFamily,
@@ -48,9 +28,17 @@ pub enum CtrlCmdPayload {
     GetPolicy,
 }
 
-impl GenericPayload for CtrlCmdPayload {
+impl GenlFamily for GenlCtrl {
+    fn family_name(&self) -> &'static str {
+        "nlctrl"
+    }
+
+    fn family_id(&self) -> u16 {
+        GENL_ID_CTRL
+    }
+
     fn command(&self) -> u8 {
-        use CtrlCmdPayload::*;
+        use GenlCtrl::*;
         match self {
             Unspec => CTRL_CMD_UNSPEC,
             NewFamily => CTRL_CMD_NEWFAMILY,
@@ -64,5 +52,9 @@ impl GenericPayload for CtrlCmdPayload {
             GetMcastGrp => CTRL_CMD_GETMCAST_GRP,
             GetPolicy => CTRL_CMD_GETPOLICY,
         }
+    }
+
+    fn version(&self) -> u8 {
+        2
     }
 }

@@ -22,11 +22,3 @@ pub trait GenlFamily {
     /// Indicate the protocol version
     fn version(&self) -> u8;
 }
-
-pub trait GenlSerializable {
-
-}
-
-pub trait GenlDeserializable {
-
-}

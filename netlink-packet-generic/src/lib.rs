@@ -5,7 +5,7 @@ mod buffer;
 
 pub mod constants;
 
-//pub mod ctrl;
+pub mod ctrl;
 
 pub mod header;
 
