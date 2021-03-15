@@ -1,15 +1,18 @@
 #[macro_use]
 extern crate netlink_packet_utils;
 
-mod buffer;
+pub mod buffer;
+pub use self::buffer::*;
 
 pub mod constants;
 
 pub mod ctrl;
 
 pub mod header;
+pub use self::header::*;
 
-mod message;
+pub mod message;
 pub use self::message::*;
 
 pub mod traits;
+pub use self::traits::*;
