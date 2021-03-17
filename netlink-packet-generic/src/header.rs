@@ -3,7 +3,7 @@ use netlink_packet_utils::{Emitable, Parseable};
 use crate::buffer::GenlBuffer;
 use crate::constants::GENL_HDRLEN;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GenlHeader {
     cmd: u8,
     version: u8,

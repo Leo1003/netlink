@@ -51,7 +51,7 @@ where
 
 impl<'a, F> NetlinkDeserializable<GenlMessage<F>> for GenlMessage<F>
 where
-    F: ParseableParametrized<[u8], u16> + Clone + Debug + PartialEq + Eq,
+    F: ParseableParametrized<[u8], GenlHeader> + Clone + Debug + PartialEq + Eq,
 {
     type Error = DecodeError;
     fn deserialize(header: &NetlinkHeader, payload: &[u8]) -> Result<Self, Self::Error> {
